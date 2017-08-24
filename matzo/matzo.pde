@@ -1,23 +1,19 @@
 //variables:
-PImage knockback;
-PImage sink; 
 PImage black;
 static int x;     // positions
 int y = 50;
+//dont mess with{{
 int Y = 250;
 static int w, h;     // dimensions
 static int ww, hh;   // radii
 static int gw, gh;   // canvas - radii
-//obstacles/powerups
-float e = random(900);
-int p = 870;
-float q = random(900);
-int i = 870;
+//}}
+//obstacles position
 float s = random(900);
 int d = 870;
 //timers
-int sheild;
 int startAtProgramBegin;
+//page number
 int page = 0;
  
 // Object's constants:
@@ -47,9 +43,6 @@ static final void initVars(int wdt, int hgt) {
  
 void setup() {
   startAtProgramBegin = millis();
-  sheild = millis();
-   knockback = loadImage("image-j.jpg");
-   sink = loadImage("download.jpg");
    black = loadImage("black.jpg");
   size(900, 870);
   smooth();            // turn on drawing smoothness
@@ -79,30 +72,6 @@ noLoop();
   fill(150);
   rect(x,y-140,20,200);
   ellipse(x,y,70,90);
-  
-  image(knockback,e-50,p-50,100,100);
-  p-=2;
-  if(p<0){
-    p = 870;
-    e = random(900);
-  }
-  if(p+100>Y+5 && p-100<Y-5 && e+100>x+5 && e-100<x-5){
-    Y-=50;
-    p=870;
-    e = random(900);
-    }
-    //--------
-     image(sink,q-50,i-50,100,100);
-  i-=2;
-  if(i<0){
-    i = 870;
-    q = random(900);
-  }
-  if(i+100>Y+5 && i-100 <Y-5 && q+100>x+5 && q-100<x-5){
-    Y+=50;
-    i=870;
-    q = random(900);
-    }
     //-----
      image(black,s-50,d-50,100,100);
   d-=2;
@@ -111,7 +80,7 @@ noLoop();
     s = random(900);
   }
   if(d+100>Y+5 && d-100 <Y-5 && s+100>x+5 && s-100<x-5){
-    Y+=50;
+    Y-=50;
     d=870;
     s = random(900);
     }
@@ -158,10 +127,8 @@ void displayObject() {
 void mouseClicked() {
   //if(mouseX<=  && mouseX>= && mouseY<= && mouseY>=)
 x-=1;
-e = random(900);
-p = 870;
-q = random(900);
-i = 870;
+s = random(900);
+d = 870;
 Y = 250;
   loop();
 }

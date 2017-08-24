@@ -146,13 +146,13 @@ ellipse(holebl-=3,blackho,(random(80)),(random(80)));
 }}
 y-=speed;
   fill(random(100), 0, 0);
-  ellipse(x, y + 130, 90, 90);
+  ellipse(mouseX, y + 130, 90, 90);
   fill(248,random(50), 0);
-  ellipse(x, y + 115, 70, 70);
+  ellipse(mouseX, y + 115, 70, 70);
   fill(255,random(200), 0);
-  ellipse(x, y + 95, 35, 35);
+  ellipse(mouseX, y + 95, 35, 35);
   fill(100, 100, 100);//31-36 fire
-  triangle(x, y , x + 50, y + 100, x  - 50, y + 100);
+  triangle(mouseX, y , mouseX + 50, y + 100, mouseX  - 50, y + 100);
 
 if(y<0){
   w++;
